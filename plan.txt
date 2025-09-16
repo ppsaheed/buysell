@@ -1,0 +1,48 @@
+🔑 Dubuynsell Website
+
+
+1️⃣ Hero Section (Top of Homepage)
+	•	Big, clean question:
+“Are you a Buyer or a Seller?”
+	•	Two large buttons:
+🔵 I’m a Buyer | 🟢 I’m a Seller
+
+⸻
+
+2️⃣ Form Section (After Clicking Button)
+	•	Simple form pops up or opens a new page.
+	•	Form Fields:
+	•	Name
+	•	Email / WhatsApp
+	•	Type of requirement (buying / selling / renting)
+	•	Brief description (e.g., type of business or property, budget, size)
+	•	Submit Button:
+“Send My Details”
+
+✅ Action: Form details go straight to your email inbox.
+
+⸻
+
+3️⃣ Trust/Brand Section (Middle of Page)
+	•	Short tagline + 1–2 lines about Dubuynsell:
+“Connecting buyers and sellers of businesses, offices & warehouses in Dubai.”
+	•	Maybe a background image of Dubai skyline for trust factor.
+
+⸻
+
+4️⃣ Social & Contact Section (Footer)
+	•	Instagram icon → links to your Instagram page
+	•	WhatsApp icon → opens chat (use WhatsApp API click-to-chat link)  : +971 54 994 5431
+	•	Small line:
+“Follow us on Instagram & DM for faster response.” : https://www.instagram.com/dubuynsell
+
+⸻
+
+5️⃣ Optional (but good to add):
+	•	Client Testimonials or
+	•	Featured Listings (even just 2–3 sample businesses or spaces — makes the site look alive)
+
+logo path : ./logo.png
+dubuynsell.com
+📞 +971 54 994 5431
+https://www.instagram.com/dubuynsell
