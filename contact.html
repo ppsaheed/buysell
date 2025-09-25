@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Dubuynsell</title>
+    <meta name="description" content="Get in touch with Dubuynsell for premium business brokerage services in Dubai. Connect with exclusive opportunities.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1F1F1F;
+            background: #F9F9F9;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(45deg, #0a0a0a, #1a1a2e, #16213e, #0f0f0f);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(0, 123, 255, 0.1) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            background: rgba(10, 10, 10, 0.98);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #FFD700, #FFA500, #FF6B6B);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.02em;
+        }
+
+        .logo::before {
+            content: '◆';
+            margin-right: 12px;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .contact-info a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-info a:hover {
+            color: #FFD700;
+            border-color: rgba(255, 215, 0, 0.3);
+            background: rgba(255, 215, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(249, 249, 249, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid #EAEAEA;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(249, 249, 249, 0.98);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 24px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .nav-logo-img {
+            height: 50px;
+            width: auto;
+        }
+
+        .nav-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #25A8A2;
+            margin: 0;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: #1F1F1F;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 8px;
+        }
+
+        .nav-link:hover {
+            color: #25A8A2;
+            background: rgba(37, 168, 162, 0.1);
+        }
+
+        .nav-cta {
+            background: #25A8A2;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background: #1F8E89;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(37, 168, 162, 0.3);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #1F1F1F;
+            transition: all 0.3s ease;
+        }
+
+        /* Contact Form Section */
+        .contact-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 24px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-content {
+            max-width: 800px;
+            width: 100%;
+            z-index: 2;
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .contact-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: #1F1F1F;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+        }
+
+        .contact-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .form-container {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 32px 64px rgba(0, 0, 0, 0.5);
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            color: white;
+            font-size: 1rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 16px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            font-size: 1rem;
+            color: white;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #FFD700;
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 0 4px rgba(255, 215, 0, 0.1);
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #000;
+            padding: 18px 36px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 32px rgba(255, 215, 0, 0.3);
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            color: #25A8A2;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #1F8E89;
+            transform: translateX(-5px);
+        }
+
+        /* Footer */
+        .footer {
+            background: #F9F9F9;
+            border-top: 1px solid #EAEAEA;
+            color: #1F1F1F;
+            padding: 4rem 0 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #666;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            padding: 16px 28px;
+            background: #FFFFFF;
+            border-radius: 50px;
+            border: 1px solid #EAEAEA;
+            transition: all 0.4s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .social-link:hover {
+            color: #25A8A2;
+            border-color: #25A8A2;
+            background: #F9F9F9;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(37, 168, 162, 0.2);
+        }
+
+        .footer-text {
+            color: #666;
+            font-style: italic;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-bottom {
+            color: #666;
+            font-size: 0.9rem;
+            border-top: 1px solid #EAEAEA;
+            padding-top: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .contact-title {
+                font-size: 2.2rem;
+            }
+
+            .form-container {
+                margin: 0;
+                width: 100%;
+                padding: 2rem;
+            }
+
+            .nav {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1.5rem 0;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 0.5rem;
+                font-size: 0.8rem;
+            }
+
+            .nav-container {
+                padding: 1rem;
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(249, 249, 249, 0.95);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                gap: 1rem;
+                padding: 2rem;
+                border-bottom: 1px solid #EAEAEA;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-link {
+                padding: 1rem;
+                border-radius: 8px;
+            }
+
+            .nav-cta {
+                margin-top: 1rem;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .social-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="./logo.png" alt="Dubuynsell Logo" class="nav-logo-img">
+                <h1 class="nav-brand">DUBUYNSELL</h1>
+            </a>
+            <div class="nav-menu">
+                <a href="index.html#testimonials" class="nav-link">Testimonials</a>
+                <a href="index.html#listings" class="nav-link">Listings</a>
+                <a href="tel:+971549945431" class="nav-cta">📞 Call Now</a>
+            </div>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Form Section -->
+    <section class="contact-section">
+        <div class="bg-animation"></div>
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-header">
+                    <h1 class="contact-title" id="formTitle">Premium Buyer Registration</h1>
+                    <p class="contact-subtitle">Tell us about your requirements and we'll connect you with exclusive opportunities</p>
+                </div>
+
+                <div class="form-container">
+                    <form id="contactForm" onsubmit="submitForm(event)">
+                        <input type="hidden" id="backlink" name="backlink" value="">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact">Email / WhatsApp *</label>
+                            <input type="text" id="contact" name="contact" required placeholder="Email address or WhatsApp number">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="requirement">Type of Requirement *</label>
+                            <select id="requirement" name="requirement" required>
+                                <option value="">Select your requirement</option>
+                                <option value="buying-business">Acquiring a Business</option>
+                                <option value="selling-business">Selling a Business</option>
+                                <option value="renting-office">Leasing Office Space</option>
+                                <option value="renting-warehouse">Leasing Warehouse/Industrial</option>
+                                <option value="buying-property">Buying Commercial Property</option>
+                                <option value="selling-property">Selling Commercial Property</option>
+                                <option value="investment">Investment Opportunities</option>
+                                <option value="other">Other Requirements</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description">Detailed Requirements *</label>
+                            <textarea id="description" name="description" required placeholder="Please provide comprehensive details: business type, budget range, preferred locations, size requirements, timeline, and any specific criteria..."></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Send My Requirements</button>
+                    </form>
+                </div>
+
+                <a href="index.html" class="back-link">← Back to Home</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="social-links">
+                    <a href="https://wa.me/971549945431" class="social-link" target="_blank">
+                        💬 WhatsApp Chat
+                    </a>
+                    <a href="https://www.instagram.com/dubuynsell" class="social-link" target="_blank">
+                        📸 Follow on Instagram
+                    </a>
+                </div>
+                <p class="footer-text">Follow us on Instagram & DM for priority access to exclusive listings.</p>
+                <div class="footer-bottom">
+                    © 2024 Dubuynsell. Premium Business Brokerage Services in Dubai.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let currentUserType = 'buyer'; // Default to buyer
+
+        // Get user type and backlink from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const userType = urlParams.get('type');
+        const backlink = urlParams.get('backlink');
+
+        if (userType) {
+            currentUserType = userType;
+        }
+
+        // Update form title based on user type and populate backlink field
+        document.addEventListener('DOMContentLoaded', () => {
+            const title = document.getElementById('formTitle');
+            if (currentUserType === 'seller') {
+                title.textContent = 'Exclusive Seller Registration';
+            } else {
+                title.textContent = 'Premium Buyer Registration';
+            }
+
+            // Set backlink value
+            if (backlink) {
+                document.getElementById('backlink').value = backlink;
+            }
+        });
+
+        // Scroll effects
+        window.addEventListener('scroll', () => {
+            // Navbar scroll effect
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', () => {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-menu').classList.remove('active');
+            });
+        });
+
+        function submitForm(event) {
+            event.preventDefault();
+
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData.entries());
+
+            // Add user type to data
+            data.userType = currentUserType;
+
+            // Create WhatsApp message text
+            const whatsappText = `Full Name: ${data.name}\nEmail: ${data.contact}\nPhone: \nService: ${data.requirement}\nMessage: ${data.description}\nBacklink: ${data.backlink}`;
+
+            // Create WhatsApp URL
+            const whatsappUrl = `https://api.whatsapp.com/send/?phone=971549945431&text=${encodeURIComponent(whatsappText)}&type=phone_number&app_absent=0`;
+
+            // Open WhatsApp
+            window.location.href = whatsappUrl;
+
+            // Show success message
+            alert('🎉 Thank you for choosing Dubuynsell Premium! Your inquiry has been sent via WhatsApp. Our team will contact you within 2 hours. For immediate assistance, call +971 54 994 5431');
+        }
+
+        // Close modal with Escape key (removed, not needed for page)
+        // document.addEventListener('keydown', function(event) {
+        //     if (event.key === 'Escape') {
+        //         // No modal to close
+        //     }
+        // });
+    </script>
+</body>
+</html>
