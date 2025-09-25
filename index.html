@@ -1119,13 +1119,13 @@
 
             <div class="listings-grid">
                 <div class="listing-card">
-                    <div class="listing-image">🏪</div>
+                    <div class="listing-image" style="background-image: url('./img_listing/inout1.jpeg'); background-size: cover; background-position: center;"></div>
                     <div class="listing-content">
-                        <h3 class="listing-title">Prime Retail Space - Dubai Mall Area</h3>
-                        <p class="listing-location">📍 Dubai Mall Vicinity</p>
-                        <p class="listing-description">High-traffic retail space perfect for fashion, electronics, or specialty stores. Excellent footfall and prime location visibility.</p>
+                        <h3 class="listing-title">Freehold Labour Camp (Staff Accommodation)</h3>
+                        <p class="listing-location">📍 Dubai Industrial City (DIC)</p>
+                        <p class="listing-description">168 rooms, approved capacity 1,200 persons (as per MOHRE). Ideal staff accommodation property.</p>
                         <div class="listing-details">
-                            <span class="listing-price">AED 2.5M</span>
+                            <span class="listing-price">Contact for Price</span>
                             <span class="listing-type">For Sale</span>
                         </div>
                         <button class="listing-btn" onclick="openModal('buyer')">Inquire Now</button>
@@ -1133,13 +1133,13 @@
                 </div>
 
                 <div class="listing-card">
-                    <div class="listing-image">🏭</div>
+                    <div class="listing-image" style="background-image: url('./img_listing/inout2.jpeg'); background-size: cover; background-position: center;"></div>
                     <div class="listing-content">
-                        <h3 class="listing-title">Industrial Warehouse - Jebel Ali</h3>
-                        <p class="listing-location">📍 Jebel Ali Free Zone</p>
-                        <p class="listing-description">Modern warehouse facility with excellent logistics access. Perfect for manufacturing, distribution, or storage operations.</p>
+                        <h3 class="listing-title">Building for Sale</h3>
+                        <p class="listing-location">📍 Al Qusais</p>
+                        <p class="listing-description">45 × 1BHK units, 18 × 2BHK units, 9 × 3BHK units, 7 shops. Annual rental income AED 4,000,000. Excellent investment with steady rental income.</p>
                         <div class="listing-details">
-                            <span class="listing-price">AED 8M</span>
+                            <span class="listing-price">AED 4,000,000/year rental income</span>
                             <span class="listing-type">For Sale</span>
                         </div>
                         <button class="listing-btn" onclick="openModal('buyer')">Inquire Now</button>
@@ -1147,14 +1147,14 @@
                 </div>
 
                 <div class="listing-card">
-                    <div class="listing-image">🏢</div>
+                    <div class="listing-image" style="background-image: url('./img_listing/inout3.jpeg'); background-size: cover; background-position: center;"></div>
                     <div class="listing-content">
-                        <h3 class="listing-title">Premium Office Space - Business Bay</h3>
-                        <p class="listing-location">📍 Business Bay</p>
-                        <p class="listing-description">Fully furnished executive offices with stunning city views. Ideal for corporate headquarters or professional services.</p>
+                        <h3 class="listing-title">Medical Centre for Sale</h3>
+                        <p class="listing-location">📍 Sharjah</p>
+                        <p class="listing-description">All major insurances accepted. Prime location with high footfall & growth potential. Monthly revenue AED 120K–180K.</p>
                         <div class="listing-details">
-                            <span class="listing-price">AED 450K/year</span>
-                            <span class="listing-type">For Lease</span>
+                            <span class="listing-price">AED 120K–180K/month</span>
+                            <span class="listing-type">For Sale</span>
                         </div>
                         <button class="listing-btn" onclick="openModal('buyer')">Inquire Now</button>
                     </div>
@@ -1291,51 +1291,25 @@
 
         function submitForm(event) {
             event.preventDefault();
-            
+
             const formData = new FormData(event.target);
             const data = Object.fromEntries(formData.entries());
-            
+
             // Add user type to data
             data.userType = currentUserType;
-            
-            // Create email content
-            const emailBody = `
-🏢 NEW ${currentUserType.toUpperCase()} INQUIRY - DUBUYNSELL PREMIUM
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            // Create WhatsApp message text
+            const whatsappText = `Full Name: ${data.name}\nEmail: ${data.contact}\nPhone: \nService: ${data.requirement}\nMessage: ${data.description}`;
 
-👤 CONTACT DETAILS:
-Name: ${data.name}
-Contact: ${data.contact}
-User Type: ${currentUserType === 'buyer' ? '🔷 Premium Buyer' : '💎 Exclusive Seller'}
+            // Create WhatsApp URL
+            const whatsappUrl = `https://api.whatsapp.com/send/?phone=971561644144&text=${encodeURIComponent(whatsappText)}&type=phone_number&app_absent=0`;
 
-📋 REQUIREMENTS:
-Category: ${data.requirement}
+            // Open WhatsApp
+            window.location.href = whatsappUrl;
 
-📝 DETAILED DESCRIPTION:
-${data.description}
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-⏰ Submitted: ${new Date().toLocaleString()}
-🌐 Source: Dubuynsell.com Premium Portal
-
-🚨 PRIORITY: High-value ${currentUserType} inquiry
-💼 Action Required: Immediate response within 2 hours
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-            `;
-            
-            // Create mailto link
-            const subject = `🏢 PREMIUM ${currentUserType.toUpperCase()} INQUIRY - ${data.name}`;
-            const mailtoLink = `mailto:info@dubuynsell.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
-            
-            // Open email client
-            window.location.href = mailtoLink;
-            
             // Show success message
-            alert('🎉 Thank you for choosing Dubuynsell Premium! Your inquiry has been submitted and our team will contact you within 2 hours. For immediate assistance, call +971 54 994 5431');
-            
+            alert('🎉 Thank you for choosing Dubuynsell Premium! Your inquiry has been sent via WhatsApp. Our team will contact you within 2 hours. For immediate assistance, call +971 54 994 5431');
+
             // Close modal
             closeModal();
         }
